@@ -3,11 +3,7 @@
 import { useEffect, useState } from "react";
 import type { TableMetadata } from "@/app/api/metadata/tables/route";
 
-interface TablesViewProps {
-  initialTables?: TableMetadata[];
-}
-
-export const TablesView: React.FC<TablesViewProps> = () => {
+export const TablesView: React.FC = () => {
   const [tables, setTables] = useState<TableMetadata[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
