@@ -23,7 +23,7 @@ export async function GET() {
   try {
     const pool = await getDbPool();
 
-    const data: Partial<LookupTablesResponse> = {};
+    const data = {} as LookupTablesResponse;
 
     for (const table of LOOKUP_TABLES) {
       const result = await pool
@@ -34,7 +34,7 @@ export async function GET() {
       data[table] = rows;
     }
 
-    return NextResponse.json(data satisfies LookupTablesResponse, {
+    return NextResponse.json(data, {
       status: 200
     });
   } catch (error) {
